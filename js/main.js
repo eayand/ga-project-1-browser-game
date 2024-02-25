@@ -13,10 +13,11 @@ let yourMove = `r${row}c${column}`
   /*----- cached elements  -----*/
 const choiceButtons = document.querySelectorAll('.choice')
 let currentSelection = document.getElementById(yourMove)
+const submitButton = document.getElementById('submit')
 
   /*----- event listeners -----*/
 choiceButtons.forEach((choiceButton) => choiceButton.addEventListener('click', addPeg))
-
+submitButton.addEventListener('click', submitGuess)
 
   /*----- functions -----*/
 init()
@@ -41,15 +42,6 @@ function shuffle() {
 }
 //credit freeCodeCamp
 
-function selectNext() {
-  if (column === 3) {
-    column = 0
-    row --
-  } else {
-    column ++
-  }
-}
-
 function addPeg(event) {
   let selectedColor = event.target.style.backgroundColor
   currentSelection.style.backgroundColor = selectedColor
@@ -59,3 +51,23 @@ function addPeg(event) {
 }
 //start by selecting r9c0 to r9c3
 //end with r0c3
+
+function selectNext() {
+  if (column > 2) {
+    return null
+  }
+  else {
+    column ++
+  }
+}
+
+function submitGuess() {
+  if (column === 3) {
+    column = 0
+    row --
+    yourMove = `r${row}c${column}`
+    currentSelection = document.getElementById(yourMove)
+  } else {
+    return 
+  }
+}
