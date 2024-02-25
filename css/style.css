@@ -5,6 +5,7 @@
 
 body {
     max-width: 500px;
+    background-color: antiquewhite;
     border: 0;
     margin: 0 auto;
     display: grid;
@@ -27,6 +28,7 @@ h1 {
 #board {
     grid-area: board-g;
     border: 5px solid black;
+    background-color: #707070;
 }
 
 #board, #feedback {
@@ -51,7 +53,7 @@ h1 {
     font-size: 3vh;
     font-weight: bold;
     color: #777777;
-    background-color: #bbbbbb;
+    background-color: #cccccc;
 }
 
 .guess > div {
@@ -59,6 +61,7 @@ h1 {
     aspect-ratio: 1 / 1;
     border: 1px solid black;
     border-radius: 50%;
+    background-color: rgb(255, 245, 233);
 }
 
 #fb-left, #fb-right {
@@ -71,7 +74,8 @@ h1 {
     height: 100%;
     vertical-align: middle;
     text-align: center;
-    font-size: 1vmin;
+    font-size: 2vmin;
+    font-style: italic;
     padding: 0 .5vmin
 }
 
@@ -84,7 +88,9 @@ h1 {
 
 #feedback {
     grid-area: feedback-g;
-    border: 5px solid skyblue;
+    background-color: rgb(255, 245, 233);
+    border: 5px solid black;
+    border-left: 0;
 }
 
 .fb-chart > div {
@@ -114,7 +120,7 @@ h1 {
 
 #ap-top {
     grid-area: top;
-    background-color: white;
+    background-color: rgb(255, 245, 233);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -128,7 +134,7 @@ h1 {
 
 #undo-area {
     grid-area: left;
-    background-color: white;
+    background-color: rgb(255, 245, 233);
 }
 
 #undo-area, #submit-area {
@@ -141,19 +147,19 @@ h1 {
 #undo, #submit {
     width: 70%;
     height: 70%;
-    color: white;
+    color: rgb(255, 245, 233);
     font-size: 4.5vmin;
     background-color: black;
 }
 
 #submit-area {
     grid-area: right;
-    background-color: white;
+    background-color: rgb(255, 245, 233);
 }
 
 #message-area {
     grid-area: bottom;
-    background-color: aliceblue;
+    background-color: rgb(255, 245, 233);
     display: flex;
     text-align: center;
     align-items: center;
