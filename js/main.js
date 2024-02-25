@@ -12,12 +12,12 @@ let yourMove = `r${row}c${column}`
 
   /*----- cached elements  -----*/
 const choiceButtons = document.querySelectorAll('.choice')
-
+let currentSelection = document.getElementById(yourMove)
 
   /*----- event listeners -----*/
+choiceButtons.forEach((choiceButton) => choiceButton.addEventListener('click', addPeg))
 
 
-  
   /*----- functions -----*/
 init()
 
@@ -28,22 +28,33 @@ function init() {
 
 function makeCode() {
   for (let i = 0; i < 4; i++) {
-    secretCode.push(Math.floor(Math.random() * 6))
+    secretCode.push(Math.floor(Math.random() * colors.length))
   }
 }
 
 function shuffle() {
-    const black = '#000000'
     buttons = colors.sort(() => Math.random() - 0.5)
     choiceButtons.forEach(function(choiceButton, idx) {
       const pickedColor = buttons[idx]
       choiceButton.style.backgroundColor = pickedColor
     })
 }
+//credit freeCodeCamp
 
-function select() {
-
+function selectNext() {
+  if (column === 3) {
+    column = 0
+    row --
+  } else {
+    column ++
+  }
 }
 
+function addPeg(event) {
+  let selectedColor = event.target.style.backgroundColor
+  currentSelection.style.backgroundColor = selectedColor
+  selectNext()
+ //next advance selection   
+}
 //start by selecting r9c0 to r9c3
 //end with r0c3
