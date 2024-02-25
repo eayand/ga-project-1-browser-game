@@ -1,24 +1,35 @@
   /*----- constants -----*/
 const colors = ['#ff3333', '#ffa500', '#fff000', '#00bb60', '#4444ff', '#9900dd']
 
-let secretCode = []
-let buttons = []
-
 
   /*----- state variables -----*/
+let secretCode = []
+let buttons = []
+let row = 9
+let column = 0
+let yourMove = `r${row}c${column}`
 
 
   /*----- cached elements  -----*/
 const choiceButtons = document.querySelectorAll('.choice')
 
+
   /*----- event listeners -----*/
 
 
+  
   /*----- functions -----*/
 init()
 
 function init() {
+    makeCode()
     shuffle()
+}
+
+function makeCode() {
+  for (let i = 0; i < 4; i++) {
+    secretCode.push(Math.floor(Math.random() * 6))
+  }
 }
 
 function shuffle() {
@@ -30,3 +41,9 @@ function shuffle() {
     })
 }
 
+function select() {
+
+}
+
+//start by selecting r9c0 to r9c3
+//end with r0c3
