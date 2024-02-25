@@ -54,7 +54,8 @@ function addPeg(event) {
   let selectedColor = event.target.style.backgroundColor
   currentSelection.style.backgroundColor = selectedColor
   selectNext()
- //next advance selection   
+  yourMove = `r${row}c${column}`
+  currentSelection = document.getElementById(yourMove)
 }
 //start by selecting r9c0 to r9c3
 //end with r0c3
