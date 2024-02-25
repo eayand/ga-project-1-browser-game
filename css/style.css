@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace
+}
+
+body {
+    max-width: 500px;
+    border: 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+        "header-board header-feedback"
+        "board-g feedback-g";
+}
+
+h1 {
+    grid-area: header-board;
+    justify-self: end;
+    width: 100%;
+    font-size: 5vmin;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#board {
+    grid-area: board-g;
+    border: 5px solid black;
+}
+
+#board, #feedback {
+    margin-bottom: 30vh;
+}
+
+#code, .guess, #fb-titles, .fb-chart {
+    height: 8vh;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.secret {
+    border: 2px solid #777777;
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bold;
+    color: #777777;
+    background-color: #bbbbbb;
+}
+
+.guess > div {
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+#fb-left, #fb-right {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1vmin;
+    padding: 0 .5vmin
+}
+
+.small-title {
+    padding: 0 .4vmin;
+    margin: 0;
+    text-align: center;
+    font-size: 1vmin;
+}
+
+#feedback {
+    grid-area: feedback-g;
+    border: 5px solid skyblue;
+}
+
+.fb-chart > div {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+}
+
+#action-pane {
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    height: 30%;
+    border: 5px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "top top"
+        "left right"
+        "bottom bottom";
+}
+
+#ap-top {
+    grid-area: top;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#ap-top > button {
+    width: 13%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+
+#undo-area {
+    grid-area: left;
+    background-color: white;
+}
+
+#undo-area, #submit-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+#undo, #submit {
+    width: 70%;
+    height: 70%;
+    color: white;
+    font-size: 4.5vmin;
+    background-color: black;
+}
+
+#submit-area {
+    grid-area: right;
+    background-color: white;
+}
+
+#message-area {
+    grid-area: bottom;
+    background-color: aliceblue;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5vmin;
+    font-size: 5vmin;
+}
