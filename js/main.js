@@ -43,18 +43,22 @@ function shuffle() {
 //credit freeCodeCamp
 
 function addPeg(event) {
-  let selectedColor = event.target.style.backgroundColor
-  currentSelection.style.backgroundColor = selectedColor
-  selectNext()
-  yourMove = `r${row}c${column}`
-  currentSelection = document.getElementById(yourMove)
+  if (currentSelection.classList.contains('lock')) {
+    return
+  } else {
+    let selectedColor = event.target.style.backgroundColor
+    currentSelection.style.backgroundColor = selectedColor
+    selectNext(event)
+    yourMove = `r${row}c${column}`
+    currentSelection = document.getElementById(yourMove)
+  }
 }
 //start by selecting r9c0 to r9c3
 //end with r0c3
 
 function selectNext() {
   if (column > 2) {
-    return null
+    currentSelection.classList.add('lock')
   }
   else {
     column ++
@@ -68,6 +72,10 @@ function submitGuess() {
     yourMove = `r${row}c${column}`
     currentSelection = document.getElementById(yourMove)
   } else {
-    return 
+    return null
   }
+}
+
+function undoPeg() {
+
 }
