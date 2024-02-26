@@ -11,6 +11,8 @@ let row = 9
 let column = 0
 let yourMove = `r${row}c${column}`
 let currentGuess = []
+let exactMatches = []
+let partialMatches = []
 // let currentExactFb = `l${row}`
 // let currentPartialFb = `r${row}`
 
@@ -20,6 +22,7 @@ const choiceButtons = document.querySelectorAll('.choice')
 let currentSelection = document.getElementById(yourMove)
 const submitButton = document.getElementById('submit')
 const undoButton = document.getElementById('undo')
+const userMessage = document.querySelector('#message-area > p')
 // let exactFbToken = document.getElementById(`${currentExactFb}`)
 
 
@@ -103,19 +106,20 @@ function submitGuess() {
     yourMove = `r${row}c${column}`
     currentSelection = document.getElementById(yourMove)
     currentGuess = []
+    renderFeedback()
   } else {
     return null
   }
 }
 
 function getFeedback() {
+  exactMatches = []
+  partialMatches = []
   let secretCodeCopyOne = [...secretCode]
-  let exactMatches = []
   let secretCodeCopyTwo = []
   let possiblePartials = []
-  let partialMatches = []
   while (currentGuess.length > 0) {
-            console.log('cgl - ', currentGuess.length)
+    console.log('cgl - ', currentGuess.length) //test-test-test-test
     if (currentGuess[0] === secretCodeCopyOne[0]) {
       exactMatches.push(currentGuess.shift())
       secretCodeCopyOne.shift()
@@ -128,7 +132,7 @@ function getFeedback() {
     return
   }
   while (possiblePartials.length > 0) {
-                console.log('ppl - ', possiblePartials.length)
+    console.log('ppl - ', possiblePartials.length) //test-test-test-test
     let indexPM = secretCodeCopyTwo.findIndex((partialMatch) => partialMatch === possiblePartials[0])
     if (indexPM >= 0) {
       partialMatches.push(possiblePartials.shift())
@@ -137,6 +141,12 @@ function getFeedback() {
       possiblePartials.shift()
     }
   }
-     console.log('ex - ', exactMatches)
-     console.log('par - ', partialMatches)
+  console.log('ex - ', exactMatches) //test-test-test-test
+  console.log('par - ', partialMatches) //test-test-test-test
+}
+
+function renderFeedback() {
+  if (exactMatches.length < 1) {
+    userMessage.textContent = 'No exact matches'
+  }
 }
