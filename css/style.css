@@ -61,7 +61,7 @@ h1 {
     aspect-ratio: 1 / 1;
     border: 1px solid black;
     border-radius: 50%;
-    background-color: rgb(255, 245, 233);
+    background-color: #fff5e9;
 }
 
 #fb-left, #fb-right {

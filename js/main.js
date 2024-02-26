@@ -1,6 +1,8 @@
   /*----- constants -----*/
 const colors = ['#ff3333', '#ffa500', '#fff000', '#00bb60', '#4444ff', '#9900dd']
 
+const open = '#fff5e9'
+
 
   /*----- state variables -----*/
 let secretCode = []
@@ -14,10 +16,14 @@ let yourMove = `r${row}c${column}`
 const choiceButtons = document.querySelectorAll('.choice')
 let currentSelection = document.getElementById(yourMove)
 const submitButton = document.getElementById('submit')
+const undoButton = document.getElementById('undo')
+
 
   /*----- event listeners -----*/
 choiceButtons.forEach((choiceButton) => choiceButton.addEventListener('click', addPeg))
 submitButton.addEventListener('click', submitGuess)
+undoButton.addEventListener('click', undoPeg)
+
 
   /*----- functions -----*/
 init()
@@ -48,13 +54,11 @@ function addPeg(event) {
   } else {
     let selectedColor = event.target.style.backgroundColor
     currentSelection.style.backgroundColor = selectedColor
-    selectNext(event)
+    selectNext()
     yourMove = `r${row}c${column}`
     currentSelection = document.getElementById(yourMove)
   }
 }
-//start by selecting r9c0 to r9c3
-//end with r0c3
 
 function selectNext() {
   if (column > 2) {
@@ -77,5 +81,13 @@ function submitGuess() {
 }
 
 function undoPeg() {
-
+  if (column === 0) {
+    return
+  } else {
+    column --
+    yourMove = `r${row}c${column}`
+    currentSelection = document.getElementById(yourMove)
+    currentSelection.classList.remove('locked')
+    currentSelection.style.backgroundColor = open
+  }
 }
