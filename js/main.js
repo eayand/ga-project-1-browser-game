@@ -10,6 +10,7 @@ let buttons = []
 let row = 9
 let column = 0
 let yourMove = `r${row}c${column}`
+let currentRow = []
 
 
   /*----- cached elements  -----*/
@@ -35,8 +36,9 @@ function init() {
 
 function makeCode() {
   for (let i = 0; i < 4; i++) {
-    secretCode.push(Math.floor(Math.random() * colors.length))
+    secretCode.push(colors[Math.floor(Math.random() * colors.length)])
   }
+  // console.log(secretCode)
 }
 
 function shuffle() {
@@ -44,14 +46,17 @@ function shuffle() {
     choiceButtons.forEach(function(choiceButton, idx) {
       const pickedColor = buttons[idx]
       choiceButton.style.backgroundColor = pickedColor
+      choiceButton.setAttribute('id', `${pickedColor}`)
     })
 }
 //credit freeCodeCamp
 
 function addPeg(event) {
-  if (currentSelection.classList.contains('lock')) {
+  if (currentSelection.classList.contains('locked')) {
     return
   } else {
+    currentRow.push(event.target.id)
+    // console.log(currentRow)
     let selectedColor = event.target.style.backgroundColor
     currentSelection.style.backgroundColor = selectedColor
     selectNext()
@@ -61,16 +66,35 @@ function addPeg(event) {
 }
 
 function selectNext() {
-  if (column > 2) {
-    currentSelection.classList.add('lock')
+  if (column === 3) {
+    currentSelection.classList.add('locked')
   }
   else {
     column ++
   }
 }
 
+function undoPeg() {
+  if (column === 0) {
+    return
+  } else if (currentSelection.classList.contains('locked')) {
+    currentSelection.classList.remove('locked')
+    currentRow.pop()
+    // console.log(currentRow)
+    currentSelection.style.backgroundColor = open
+  } else {
+    column --
+    yourMove = `r${row}c${column}`
+    currentSelection = document.getElementById(yourMove)
+    currentRow.pop()
+    // console.log(currentRow)
+    currentSelection.style.backgroundColor = open
+  }
+}
+
 function submitGuess() {
-  if (column === 3) {
+  if (currentSelection.classList.contains('locked')) {
+    giveFeedback()
     column = 0
     row --
     yourMove = `r${row}c${column}`
@@ -80,14 +104,20 @@ function submitGuess() {
   }
 }
 
-function undoPeg() {
-  if (column === 0) {
-    return
-  } else {
-    column --
-    yourMove = `r${row}c${column}`
-    currentSelection = document.getElementById(yourMove)
-    currentSelection.classList.remove('locked')
-    currentSelection.style.backgroundColor = open
-  }
+function giveFeedback() {
+  console.log(secretCode)
+  console.log(currentRow)
 }
+  // console.log('code', secretCode)
+  // console.log('current row', currentRow)
+  // let compareList = []
+  // currentRow.forEach(function(guess) {
+  //   compareList.push(guess.style.backgroundColor)
+  //   console.log('cl', compareList)
+  //   return compareList
+  // })
+
+
+
+  // console.log(`r${row}c0, r${row}c1, r${row}c2, r${row}c3,`)
+  // console.log(currentRow)

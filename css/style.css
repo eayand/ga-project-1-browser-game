@@ -96,9 +96,41 @@ h1 {
 .fb-chart > div {
     border-left: 1px solid black;
     border-right: 1px solid black;
-    display: flex;
-    flex-grow: 1;
+    width: 50%;
     height: 100%;
+}
+
+.exact, .partial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "first second"
+    "third fourth";
+    padding: 1vmin 2vmin;
+}
+
+.exact > div, .partial > div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    place-self: center;
+}
+
+.first {
+    grid-area: first;
+}
+
+.second {
+    grid-area: second;
+}
+
+.third {
+    grid-area: third;
+}
+
+.fourth {
+    grid-area: fourth;
 }
 
 #action-pane {
