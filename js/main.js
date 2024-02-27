@@ -15,6 +15,7 @@ let exactMatches = []
 let partialMatches = []
 let leftSpace = 0
 let rightSpace = 0
+let extraText = ''
 
 
   /*----- cached elements  -----*/
@@ -63,7 +64,6 @@ function addPeg(event) {
     return
   } else {
     currentGuess.push(event.target.id)
-    // console.log(currentGuess)
     let selectedColor = event.target.style.backgroundColor
     currentSelection.style.backgroundColor = selectedColor
     selectNext()
@@ -78,6 +78,9 @@ function selectNext() {
   }
   else {
     column ++
+  }
+  if (column === 1) {
+    userMessage.textContent = ''
   }
 }
 
@@ -148,13 +151,33 @@ function getFeedback() {
 }
 
 function renderFeedback() {
+  renderExactMatches()
+  renderPartialMatches()
+}
+
+function renderExactMatches () {
   if (exactMatches.length < 1) {
-    userMessage.textContent = 'No exact matches'
+    extraText = 'No exact matches. '
+    userMessage.textContent = extraText
+    return extraText
   } else {
     exactMatches.forEach(function(match, index) {
       leftSpace = index
       currentExactFb = document.getElementById(`tokenr${row}l${leftSpace}`)
       currentExactFb.style.backgroundColor = '#000000'
+    })
+  }
+}
+
+function renderPartialMatches () {
+  if (partialMatches.length < 1) {
+    userMessage.textContent = `${extraText}No partial matches.`
+  } else {
+    partialMatches.forEach(function(match, index) {
+      rightSpace = index
+      currentPartialFb = document.getElementById(`tokenr${row}r${rightSpace}`)
+      currentPartialFb.style.border = ' 2.5px solid #000000'
+      currentPartialFb.style.backgroundColor = '#ffffff'
     })
   }
 }
