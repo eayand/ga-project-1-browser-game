@@ -1,10 +1,11 @@
   /*----- constants -----*/
-const colors = ['#ff3333', '#ffa500', '#fff000', '#00bb60', '#4444ff', '#9900dd']
-
+const colors = ['#ff2020', '#ff7530', '#fff000', '#00bb60', '#0050ff', '#8500ff']
+// '#ff3333', '#ffa500', '#fff000', '#00bb60', '#4444ff', '#9900dd'
 const open = '#fff5e9'
 
 
-  /*----- state variables -----*/
+
+/*----- state variables -----*/
 let secretCode = []
 let buttons = []
 let row = 9
@@ -16,9 +17,12 @@ let partialMatches = []
 let leftSpace = 0
 let rightSpace = 0
 let extraText = ''
+let win = false
+let loss = false
+const codeText = `<span style="font-size: 100px; line-height: 40px; margin: 0; padding: 0"><span style="color:${secretCode[0]}">•</span><span style="color:${secretCode[1]}">•</span><span style="color:${secretCode[2]}">•</span><span style="color:${secretCode[3]}">•</span></span>`
 
 
-  /*----- cached elements  -----*/
+/*----- cached elements  -----*/
 const choiceButtons = document.querySelectorAll('.choice')
 let currentSelection = document.getElementById(yourMove)
 const submitButton = document.getElementById('submit')
@@ -28,18 +32,18 @@ let currentExactFb = document.getElementById(`tokenr${row}l${leftSpace}`)
 let currentPartialFb = document.getElementById(`tokenr${row}r${rightSpace}`)
 
 
-  /*----- event listeners -----*/
+/*----- event listeners -----*/
 choiceButtons.forEach((choiceButton) => choiceButton.addEventListener('click', addPeg))
 submitButton.addEventListener('click', submitGuess)
 undoButton.addEventListener('click', undoPeg)
 
 
-  /*----- functions -----*/
+/*----- functions -----*/
 init()
 
 function init() {
-    makeCode()
-    shuffle()
+  makeCode()
+  shuffle()
 }
 
 function makeCode() {
@@ -79,7 +83,7 @@ function selectNext() {
     column ++
   }
   if (column === 1) {
-    userMessage.textContent = ''
+    userMessage.innerHTML = ''
   }
 }
 
@@ -104,7 +108,7 @@ function submitGuess() {
     getFeedback()
     renderFeedback()
     if (row === 0 && exactMatches.length !== 4) {
-      userMessage.innerHTML = `No more guesses. The code was <strong>EXAMPLE</strong> ${secretCode}`
+      userMessage.innerHTML = `No more guesses. The code was <br>${codeText}`
     } else {
       column = 0
       row --
@@ -155,8 +159,8 @@ function renderFeedback() {
 
 function renderExactMatches () {
   if (exactMatches.length < 1) {
-    extraText = 'No exact matches. '
-    userMessage.textContent = extraText
+    extraText = 'No exact matches. <br>'
+    userMessage.innerHTML = extraText
     return extraText
   } else {
     exactMatches.forEach(function(match, index) {
@@ -172,7 +176,7 @@ function renderExactMatches () {
 
 function renderPartialMatches () {
   if (partialMatches.length < 1 && exactMatches.length !== 4) {
-    userMessage.textContent = `${extraText}No partial matches.`
+    userMessage.innerHTML = `${extraText}No partial matches.`
   } else {
     partialMatches.forEach(function(match, index) {
       rightSpace = index

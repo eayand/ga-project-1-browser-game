@@ -65,35 +65,51 @@ h1 {
 }
 
 #fb-left, #fb-right {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    vertical-align: middle;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+        "color symbol1"
+        "place symbol2";
+        align-items: end;
+        justify-items: start;
     font-size: 3.5vmin;
     font-style: italic;
-    padding: 0 .5vmin
+    padding: 2vmin;
 }
 
-.small-title {
-    padding: 0 .4vmin;
+.a1, .a2, .b1, .b2 {
     margin: 0;
-    text-align: center;
-    font-size: 1vmin;
+    border: 0;
+    padding: 0;
+    place-self: start;
+}
+
+.a1 {
+    grid-area: color;
+}
+
+.a2 {
+    grid-area: place;
+    place-self: start;
+}
+
+.b1 {
+    grid-area: symbol1;
+}
+
+.b2 {
+    grid-area: symbol2;
+    place-self: start;
 }
 
 #feedback {
     grid-area: feedback-g;
-    background-color: rgb(255, 245, 233);
+    background-color: #fff5e9;
     border: 5px solid black;
     border-left: 0;
 }
 
-.fb-chart > div {
+.fb-chart > div, #fb-titles > div {
     border-left: 1px solid black;
     border-right: 1px solid black;
     width: 50%;
@@ -152,7 +168,7 @@ h1 {
 
 #ap-top {
     grid-area: top;
-    background-color: rgb(255, 245, 233);
+    background-color: #fff5e9;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -166,7 +182,7 @@ h1 {
 
 #undo-area {
     grid-area: left;
-    background-color: rgb(255, 245, 233);
+    background-color: #fff5e9;
 }
 
 #undo-area, #submit-area {
@@ -179,19 +195,19 @@ h1 {
 #undo, #submit {
     width: 70%;
     height: 70%;
-    color: rgb(255, 245, 233);
+    color: #fff5e9;
     font-size: 4.5vmin;
     background-color: black;
 }
 
 #submit-area {
     grid-area: right;
-    background-color: rgb(255, 245, 233);
+    background-color: #fff5e9;
 }
 
 #message-area {
     grid-area: bottom;
-    background-color: rgb(255, 245, 233);
+    background-color: #fff5e9;
     display: flex;
     text-align: center;
     align-items: center;
