@@ -43,10 +43,9 @@ function init() {
 }
 
 function makeCode() {
-  // for (let i = 0; i < 4; i++) {
-  //   secretCode.push(colors[Math.floor(Math.random() * colors.length)])
-  // }
-  secretCode = ['#ff3333', '#ffa500', '#fff000', '#00bb60']
+  for (let i = 0; i < 4; i++) {
+    secretCode.push(colors[Math.floor(Math.random() * colors.length)])
+  }
 }
 
 function shuffle() {
@@ -104,14 +103,15 @@ function submitGuess() {
   if (currentSelection.classList.contains('locked')) {
     getFeedback()
     renderFeedback()
-    if (row === 0) {
-      userMessage.innerHTML = 'No more guesses. The code was <strong>EXAMPLE</strong>'
+    if (row === 0 && exactMatches.length !== 4) {
+      userMessage.innerHTML = `No more guesses. The code was <strong>EXAMPLE</strong> ${secretCode}`
     } else {
       column = 0
       row --
       yourMove = `r${row}c${column}`
       currentSelection = document.getElementById(yourMove)
       currentGuess = []
+      extraText = ''
       return row
     } 
   } else {
@@ -177,7 +177,7 @@ function renderPartialMatches () {
     partialMatches.forEach(function(match, index) {
       rightSpace = index
       currentPartialFb = document.getElementById(`tokenr${row}r${rightSpace}`)
-      currentPartialFb.style.border = ' 2.5px solid #000000'
+      currentPartialFb.style.border = '2.5px solid #000000'
       currentPartialFb.style.backgroundColor = '#ffffff'
     })
   }
