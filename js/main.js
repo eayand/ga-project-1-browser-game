@@ -3,9 +3,9 @@ const colors = ['#ff2020', '#ff7530', '#fff000', '#00bb60', '#0050ff', '#8500ff'
 // '#ff3333', '#ffa500', '#fff000', '#00bb60', '#4444ff', '#9900dd'
 const open = '#fff5e9'
 
-
-
-/*----- state variables -----*/
+  
+  
+  /*----- state variables -----*/
 let secretCode = []
 let buttons = []
 let row = 9
@@ -19,7 +19,6 @@ let rightSpace = 0
 let extraText = ''
 let win = false
 let loss = false
-const codeText = `<span style="font-size: 100px; line-height: 40px; margin: 0; padding: 0"><span style="color:${secretCode[0]}">•</span><span style="color:${secretCode[1]}">•</span><span style="color:${secretCode[2]}">•</span><span style="color:${secretCode[3]}">•</span></span>`
 
 
 /*----- cached elements  -----*/
@@ -44,6 +43,7 @@ init()
 function init() {
   makeCode()
   shuffle()
+  // console.log(secretCode)
 }
 
 function makeCode() {
@@ -53,12 +53,12 @@ function makeCode() {
 }
 
 function shuffle() {
-    buttons = colors.sort(() => Math.random() - 0.5)
-    choiceButtons.forEach(function(choiceButton, idx) {
-      const pickedColor = buttons[idx]
-      choiceButton.style.backgroundColor = pickedColor
-      choiceButton.setAttribute('id', `${pickedColor}`)
-    })
+  buttons = colors.sort(() => Math.random() - 0.5)
+  choiceButtons.forEach(function(choiceButton, idx) {
+    const pickedColor = buttons[idx]
+    choiceButton.style.backgroundColor = pickedColor
+    choiceButton.setAttribute('id', `${pickedColor}`)
+  })
 }
 //credit freeCodeCamp
 
@@ -108,7 +108,8 @@ function submitGuess() {
     getFeedback()
     renderFeedback()
     if (row === 0 && exactMatches.length !== 4) {
-      userMessage.innerHTML = `No more guesses. The code was <br>${codeText}`
+      // const codeText = `<span style="font-size: 100px; line-height: 40px; margin: 0; padding: 0"><span style="color:${secretCode[0]}">•</span><span style="color:${secretCode[1]}">•</span><span style="color:${secretCode[2]}">•</span><span style="color:${secretCode[3]}">•</span></span>`
+      userMessage.innerHTML = `No more guesses. The code was <br><span style="font-size: 100px; line-height: 40px; margin: 0; padding: 0"><span style="color:${secretCode[0]}">•</span><span style="color:${secretCode[1]}">•</span><span style="color:${secretCode[2]}">•</span><span style="color:${secretCode[3]}">•</span></span>`
     } else {
       column = 0
       row --
