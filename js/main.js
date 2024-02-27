@@ -13,8 +13,8 @@ let yourMove = `r${row}c${column}`
 let currentGuess = []
 let exactMatches = []
 let partialMatches = []
-// let currentExactFb = `l${row}`
-// let currentPartialFb = `r${row}`
+let leftSpace = 0
+let rightSpace = 0
 
 
   /*----- cached elements  -----*/
@@ -23,7 +23,8 @@ let currentSelection = document.getElementById(yourMove)
 const submitButton = document.getElementById('submit')
 const undoButton = document.getElementById('undo')
 const userMessage = document.querySelector('#message-area > p')
-// let exactFbToken = document.getElementById(`${currentExactFb}`)
+let currentExactFb = document.getElementById(`tokenr${row}l${leftSpace}`)
+let currentPartialFb = document.getElementById(`tokenr${row}r${rightSpace}`)
 
 
   /*----- event listeners -----*/
@@ -101,12 +102,13 @@ function undoPeg() {
 function submitGuess() {
   if (currentSelection.classList.contains('locked')) {
     getFeedback()
+    renderFeedback()
     column = 0
     row --
     yourMove = `r${row}c${column}`
     currentSelection = document.getElementById(yourMove)
     currentGuess = []
-    renderFeedback()
+    return row
   } else {
     return null
   }
@@ -148,5 +150,13 @@ function getFeedback() {
 function renderFeedback() {
   if (exactMatches.length < 1) {
     userMessage.textContent = 'No exact matches'
+  } else {
+    exactMatches.forEach(function(match, index) {
+      leftSpace = index
+      currentExactFb = document.getElementById(`tokenr${row}l${leftSpace}`)
+      currentExactFb.style.backgroundColor = '#000000'
+    })
   }
 }
+
+// tokenr9l0
