@@ -90,14 +90,12 @@ function undoPeg() {
   } else if (currentSelection.classList.contains('locked')) {
     currentSelection.classList.remove('locked')
     currentGuess.pop()
-    // console.log(currentGuess)
     currentSelection.style.backgroundColor = open
   } else {
     column --
     yourMove = `r${row}c${column}`
     currentSelection = document.getElementById(yourMove)
     currentGuess.pop()
-    // console.log(currentGuess)
     currentSelection.style.backgroundColor = open
   }
 }
@@ -106,16 +104,20 @@ function submitGuess() {
   if (currentSelection.classList.contains('locked')) {
     getFeedback()
     renderFeedback()
-    column = 0
-    row --
-    yourMove = `r${row}c${column}`
-    currentSelection = document.getElementById(yourMove)
-    currentGuess = []
-    return row
+    if (row === 0) {
+      userMessage.innerHTML = 'No more guesses. The code was <strong>EXAMPLE</strong>'
+    } else {
+      column = 0
+      row --
+      yourMove = `r${row}c${column}`
+      currentSelection = document.getElementById(yourMove)
+      currentGuess = []
+      return row
+    } 
   } else {
     return null
-  }
-}
+  } 
+} 
 
 function getFeedback() {
   exactMatches = []
@@ -124,7 +126,6 @@ function getFeedback() {
   let secretCodeCopyTwo = []
   let possiblePartials = []
   while (currentGuess.length > 0) {
-    console.log('cgl - ', currentGuess.length) //test-test-test-test
     if (currentGuess[0] === secretCodeCopyOne[0]) {
       exactMatches.push(currentGuess.shift())
       secretCodeCopyOne.shift()
@@ -137,7 +138,6 @@ function getFeedback() {
     return
   }
   while (possiblePartials.length > 0) {
-    console.log('ppl - ', possiblePartials.length) //test-test-test-test
     let indexPM = secretCodeCopyTwo.findIndex((partialMatch) => partialMatch === possiblePartials[0])
     if (indexPM >= 0) {
       partialMatches.push(possiblePartials.shift())
@@ -146,8 +146,6 @@ function getFeedback() {
       possiblePartials.shift()
     }
   }
-  console.log('ex - ', exactMatches) //test-test-test-test
-  console.log('par - ', partialMatches) //test-test-test-test
 }
 
 function renderFeedback() {
@@ -167,10 +165,13 @@ function renderExactMatches () {
       currentExactFb.style.backgroundColor = '#000000'
     })
   }
+  if (exactMatches.length === 4) {
+    userMessage.innerHTML = '<strong>Congratulations! You cracked the code!</strong>'
+  }
 }
 
 function renderPartialMatches () {
-  if (partialMatches.length < 1) {
+  if (partialMatches.length < 1 && exactMatches.length !== 4) {
     userMessage.textContent = `${extraText}No partial matches.`
   } else {
     partialMatches.forEach(function(match, index) {
@@ -181,5 +182,3 @@ function renderPartialMatches () {
     })
   }
 }
-
-// tokenr9l0
