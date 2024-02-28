@@ -201,14 +201,12 @@ h1 {
     font-size: 6vmin;
     height: 50%;
     width: 100%;
-    /* background-color: pink; */
-    /* border-color: lightskyblue; */
 }
 
 #message-area > p {
     display: flex;
-    /* background-color: aquamarine; */
-    /* border-color:bisque; */
+    place-self: center;
+    text-align: center;
 }
 
 #new-game-button {

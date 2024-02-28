@@ -1,6 +1,6 @@
   /*----- constants -----*/
   const colors = ['#ff2020', '#ff9000', '#fff000', '#00bb60', '#0050ff', '#a000ff']
-  // '#ff3333', '#ffa500', '#fff000', '#00bb60', '#4444ff', '#9900dd'
+
   const open = '#fff5e9'
   
     
@@ -51,10 +51,9 @@
   }
   
   function makeCode() {
-    // for (let i = 0; i < 4; i++) {
-      // secretCode.push(colors[Math.floor(Math.random() * colors.length)])
-    // }
-    secretCode = ['#0050ff', '#0050ff', '#0050ff', '#0050ff']
+    for (let i = 0; i < 4; i++) {
+      secretCode.push(colors[Math.floor(Math.random() * colors.length)])
+    }
   }
   
   function shuffle() {
@@ -65,7 +64,6 @@
       choiceButton.setAttribute('id', `${pickedColor}`)
     })
   }
-  //credit freeCodeCamp
   
   function addPeg(event) {
     if (currentSelection.classList.contains('locked')) {
@@ -113,7 +111,7 @@
       getFeedback()
       renderFeedback()
       if (row === 0 && exactMatches.length !== 4) {
-        userMessage.innerHTML = `<strong>No more guesses. <br>The code was <br><span style="font-size: 100px; line-height: 50px; margin: 0; padding: 0; text-align: center"><span style="color:${secretCode[0]}">•</span><span style="color:${secretCode[1]}">•</span><span style="color:${secretCode[2]}">•</span><span style="color:${secretCode[3]}">•</span></span></strong>`
+        userMessage.innerHTML = `<strong><span style="color: #fff5e9"><br></span><br>No guesses left. <br>  The code was <br><span style="font-size: 100px; line-height: 50px; margin: 0; padding: 0; text-align: center"><span style="color:${secretCode[0]}">•</span><span style="color:${secretCode[1]}">•</span><span style="color:${secretCode[2]}">•</span><span style="color:${secretCode[3]}">•</span></span></strong>`
         userMessage.style.visibility = 'visible'
         endGame()
       } else if (exactMatches.length === 4) {
@@ -180,7 +178,7 @@
       })
     }
     if (exactMatches.length === 4) {
-      userMessage.innerHTML = '<strong>Congratulations! You cracked the code!</strong>'
+      userMessage.innerHTML = '<strong>🌈 🌟 🌈 🌟 🌈 🌟 Congratulations! <br>You cracked the code! 🌟 🌈 🌟 🌈 🌟 🌈</strong>'
       userMessage.style.visibility = 'visible'
     }
   }
@@ -200,11 +198,13 @@
   }
   
   function endGame() {
+    if (exactMatches.length === 4) {
+      messageArea.style.display = 'block'
+    }
     apTop.style.display = 'none'
     undoArea.style.display = 'none'
     submitArea.style.display = 'none'
-    messageArea.style.display = 'block'
-    // actionPane.style.backgroundColor = 'black'
+    messageArea.style.fontSize = '3vh'
     const newGameButton = document.createElement('button')
     newGameButton.innerHTML = 'New Game?'
     newGameButton.style.backgroundColor = 'black'
@@ -212,7 +212,6 @@
     newGameButton.style.fontSize = '2.5vh'
     newGameButton.style.height = '7vh'
     newGameButton.style.width = '50%'
-    // newGameButton.style.display = 'block'
     newGameButton.addEventListener('click', init)
     newButtonSpace.appendChild(newGameButton)
   }
