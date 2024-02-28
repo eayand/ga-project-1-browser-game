@@ -8,254 +8,258 @@
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    <h1>Guess the Code</h1>
-    <section id="board">
-        <div id="code">
-            <button class="secret">?</button>
-            <button class="secret">?</button>
-            <button class="secret">?</button>
-            <button class="secret">?</button>
+    <div id="size">
+        <div id="play-area">
+            <h1>Guess the Code</h1>
+            <section id="board">
+                <div id="code">
+                    <button class="secret">?</button>
+                    <button class="secret">?</button>
+                    <button class="secret">?</button>
+                    <button class="secret">?</button>
+                </div>
+                <div id="guess-area">
+                    <div class="guess" id="r9">
+                        <div id="r9c0"></div>
+                        <div id="r9c1"></div>
+                        <div id="r9c2"></div>
+                        <div id="r9c3"></div>
+                    </div>
+                    <div class="guess" id="r8">
+                        <div id="r8c0"></div>
+                        <div id="r8c1"></div>
+                        <div id="r8c2"></div>
+                        <div id="r8c3"></div>
+                    </div>
+                    <div class="guess" id="r7">
+                        <div id="r7c0"></div>
+                        <div id="r7c1"></div>
+                        <div id="r7c2"></div>
+                        <div id="r7c3"></div>
+                    </div>
+                    <div class="guess" id="r6">
+                        <div id="r6c0"></div>
+                        <div id="r6c1"></div>
+                        <div id="r6c2"></div>
+                        <div id="r6c3"></div>
+                    </div>
+                    <div class="guess" id="r5">
+                        <div id="r5c0"></div>
+                        <div id="r5c1"></div>
+                        <div id="r5c2"></div>
+                        <div id="r5c3"></div>
+                    </div>
+                    <div class="guess" id="r4">
+                        <div id="r4c0"></div>
+                        <div id="r4c1"></div>
+                        <div id="r4c2"></div>
+                        <div id="r4c3"></div>
+                    </div>
+                    <div class="guess" id="r3">
+                        <div id="r3c0"></div>
+                        <div id="r3c1"></div>
+                        <div id="r3c2"></div>
+                        <div id="r3c3"></div>
+                    </div>
+                    <div class="guess" id="r2">
+                        <div id="r2c0"></div>
+                        <div id="r2c1"></div>
+                        <div id="r2c2"></div>
+                        <div id="r2c3"></div>
+                    </div>
+                    <div class="guess" id="r1">
+                        <div id="r1c0"></div>
+                        <div id="r1c1"></div>
+                        <div id="r1c2"></div>
+                        <div id="r1c3"></div>
+                    </div>
+                    <div class="guess" id="r0">
+                        <div id="r0c0"></div>
+                        <div id="r0c1"></div>
+                        <div id="r0c2"></div>
+                        <div id="r0c3"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="feedback">
+                <div id="fb-titles">
+                    <div id="fb-left">
+                        <p class="a1">Color</p>
+                        <p class="a2">Place</p>
+                        <p class="b1">✔️</p>
+                        <p class="b2">✔️</p>
+                    </div>
+                    <div id="fb-right">
+                        <p class="a1">Color</p>
+                        <p class="a2" style="color:#dd0000">Place</p>
+                        <p class="b1">✔️</p>
+                        <p class="b2">❌</p>
+                    </div>
+                </div>
+                <div id="feedback-area">
+                    <div class="fb-chart">
+                        <div id="l9" class="exact">
+                            <div id="tokenr9l0" class="first"></div>
+                            <div id="tokenr9l1" class="second"></div>
+                            <div id="tokenr9l2" class="third"></div>
+                            <div id="tokenr9l3" class="fourth"></div>
+                        </div>
+                        <div id="r9" class="partial">
+                            <div id="tokenr9r0" class="first"></div>
+                            <div id="tokenr9r1" class="second"></div>
+                            <div id="tokenr9r2" class="third"></div>
+                            <div id="tokenr9r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l8" class="exact">
+                            <div id="tokenr8l0" class="first"></div>
+                            <div id="tokenr8l1" class="second"></div>
+                            <div id="tokenr8l2" class="third"></div>
+                            <div id="tokenr8l3" class="fourth"></div>
+                        </div>
+                        <div id="r8" class="partial">
+                            <div id="tokenr8r0" class="first"></div>
+                            <div id="tokenr8r1" class="second"></div>
+                            <div id="tokenr8r2" class="third"></div>
+                            <div id="tokenr8r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l7" class="exact">
+                            <div id="tokenr7l0" class="first"></div>
+                            <div id="tokenr7l1" class="second"></div>
+                            <div id="tokenr7l2" class="third"></div>
+                            <div id="tokenr7l3" class="fourth"></div>
+                        </div>
+                        <div id="r7" class="partial">
+                            <div id="tokenr7r0" class="first"></div>
+                            <div id="tokenr7r1" class="second"></div>
+                            <div id="tokenr7r2" class="third"></div>
+                            <div id="tokenr7r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l6" class="exact">
+                            <div id="tokenr6l0" class="first"></div>
+                            <div id="tokenr6l1" class="second"></div>
+                            <div id="tokenr6l2" class="third"></div>
+                            <div id="tokenr6l3" class="fourth"></div>
+                        </div>
+                        <div id="r6" class="partial">
+                            <div id="tokenr6r0" class="first"></div>
+                            <div id="tokenr6r1" class="second"></div>
+                            <div id="tokenr6r2" class="third"></div>
+                            <div id="tokenr6r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l5" class="exact">
+                            <div id="tokenr5l0" class="first"></div>
+                            <div id="tokenr5l1" class="second"></div>
+                            <div id="tokenr5l2" class="third"></div>
+                            <div id="tokenr5l3" class="fourth"></div>
+                        </div>
+                        <div id="r5" class="partial">
+                            <div id="tokenr5r0" class="first"></div>
+                            <div id="tokenr5r1" class="second"></div>
+                            <div id="tokenr5r2" class="third"></div>
+                            <div id="tokenr5r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l4" class="exact">
+                            <div id="tokenr4l0" class="first"></div>
+                            <div id="tokenr4l1" class="second"></div>
+                            <div id="tokenr4l2" class="third"></div>
+                            <div id="tokenr4l3" class="fourth"></div>
+                        </div>
+                        <div id="r4" class="partial">
+                            <div id="tokenr4r0" class="first"></div>
+                            <div id="tokenr4r1" class="second"></div>
+                            <div id="tokenr4r2" class="third"></div>
+                            <div id="tokenr4r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l3" class="exact">
+                            <div id="tokenr3l0" class="first"></div>
+                            <div id="tokenr3l1" class="second"></div>
+                            <div id="tokenr3l2" class="third"></div>
+                            <div id="tokenr3l3" class="fourth"></div>
+                        </div>
+                        <div id="r3" class="partial">
+                            <div id="tokenr3r0" class="first"></div>
+                            <div id="tokenr3r1" class="second"></div>
+                            <div id="tokenr3r2" class="third"></div>
+                            <div id="tokenr3r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l2" class="exact">
+                            <div id="tokenr2l0" class="first"></div>
+                            <div id="tokenr2l1" class="second"></div>
+                            <div id="tokenr2l2" class="third"></div>
+                            <div id="tokenr2l3" class="fourth"></div>
+                        </div>
+                        <div id="r2" class="partial">
+                            <div id="tokenr2r0" class="first"></div>
+                            <div id="tokenr2r1" class="second"></div>
+                            <div id="tokenr2r2" class="third"></div>
+                            <div id="tokenr2r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l1" class="exact">
+                            <div id="tokenr1l0" class="first"></div>
+                            <div id="tokenr1l1" class="second"></div>
+                            <div id="tokenr1l2" class="third"></div>
+                            <div id="tokenr1l3" class="fourth"></div>
+                        </div>
+                        <div id="r1" class="partial">
+                            <div id="tokenr1r0" class="first"></div>
+                            <div id="tokenr1r1" class="second"></div>
+                            <div id="tokenr1r2" class="third"></div>
+                            <div id="tokenr1r3" class="fourth"></div>
+                        </div>
+                    </div>
+                    <div class="fb-chart">
+                        <div id="l0" class="exact">
+                            <div id="tokenr0l0" class="first"></div>
+                            <div id="tokenr0l1" class="second"></div>
+                            <div id="tokenr0l2" class="third"></div>
+                            <div id="tokenr0l3" class="fourth"></div>
+                        </div>
+                        <div id="r0" class="partial">
+                            <div id="tokenr0r0" class="first"></div>
+                            <div id="tokenr0r1" class="second"></div>
+                            <div id="tokenr0r2" class="third"></div>
+                            <div id="tokenr0r3" class="fourth"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        <div id="guess-area">
-            <div class="guess" id="r9">
-                <div id="r9c0"></div>
-                <div id="r9c1"></div>
-                <div id="r9c2"></div>
-                <div id="r9c3"></div>
+        <section id="action-pane">
+            <div id="ap-top">
+                <button class="choice"></button>
+                <button class="choice"></button>
+                <button class="choice"></button>
+                <button class="choice"></button>
+                <button class="choice"></button>
+                <button class="choice"></button>
             </div>
-            <div class="guess" id="r8">
-                <div id="r8c0"></div>
-                <div id="r8c1"></div>
-                <div id="r8c2"></div>
-                <div id="r8c3"></div>
+            <div id="undo-area">
+                <button id="undo">Undo</button>
             </div>
-            <div class="guess" id="r7">
-                <div id="r7c0"></div>
-                <div id="r7c1"></div>
-                <div id="r7c2"></div>
-                <div id="r7c3"></div>
+            <div id="submit-area">
+                <button id="submit">Submit</button>
             </div>
-            <div class="guess" id="r6">
-                <div id="r6c0"></div>
-                <div id="r6c1"></div>
-                <div id="r6c2"></div>
-                <div id="r6c3"></div>
+            <div id="message-area">
+                <p>Click a color to start. </p>
             </div>
-            <div class="guess" id="r5">
-                <div id="r5c0"></div>
-                <div id="r5c1"></div>
-                <div id="r5c2"></div>
-                <div id="r5c3"></div>
-            </div>
-            <div class="guess" id="r4">
-                <div id="r4c0"></div>
-                <div id="r4c1"></div>
-                <div id="r4c2"></div>
-                <div id="r4c3"></div>
-            </div>
-            <div class="guess" id="r3">
-                <div id="r3c0"></div>
-                <div id="r3c1"></div>
-                <div id="r3c2"></div>
-                <div id="r3c3"></div>
-            </div>
-            <div class="guess" id="r2">
-                <div id="r2c0"></div>
-                <div id="r2c1"></div>
-                <div id="r2c2"></div>
-                <div id="r2c3"></div>
-            </div>
-            <div class="guess" id="r1">
-                <div id="r1c0"></div>
-                <div id="r1c1"></div>
-                <div id="r1c2"></div>
-                <div id="r1c3"></div>
-            </div>
-            <div class="guess" id="r0">
-                <div id="r0c0"></div>
-                <div id="r0c1"></div>
-                <div id="r0c2"></div>
-                <div id="r0c3"></div>
-            </div>
-        </div>
-    </section>
-    <section id="feedback">
-        <div id="fb-titles">
-            <div id="fb-left">
-                <p class="a1">Color</p>
-                <p class="a2">Place</p>
-                <p class="b1">✔️</p>
-                <p class="b2">✔️</p>
-            </div>
-            <div id="fb-right">
-                <p class="a1">Color</p>
-                <p class="a2" style="color:#dd0000">Place</p>
-                <p class="b1">✔️</p>
-                <p class="b2">❌</p>
-            </div>
-        </div>
-        <div id="feedback-area">
-            <div class="fb-chart">
-                <div id="l9" class="exact">
-                    <div id="tokenr9l0" class="first"></div>
-                    <div id="tokenr9l1" class="second"></div>
-                    <div id="tokenr9l2" class="third"></div>
-                    <div id="tokenr9l3" class="fourth"></div>
-                </div>
-                <div id="r9" class="partial">
-                    <div id="tokenr9r0" class="first"></div>
-                    <div id="tokenr9r1" class="second"></div>
-                    <div id="tokenr9r2" class="third"></div>
-                    <div id="tokenr9r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l8" class="exact">
-                    <div id="tokenr8l0" class="first"></div>
-                    <div id="tokenr8l1" class="second"></div>
-                    <div id="tokenr8l2" class="third"></div>
-                    <div id="tokenr8l3" class="fourth"></div>
-                </div>
-                <div id="r8" class="partial">
-                    <div id="tokenr8r0" class="first"></div>
-                    <div id="tokenr8r1" class="second"></div>
-                    <div id="tokenr8r2" class="third"></div>
-                    <div id="tokenr8r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l7" class="exact">
-                    <div id="tokenr7l0" class="first"></div>
-                    <div id="tokenr7l1" class="second"></div>
-                    <div id="tokenr7l2" class="third"></div>
-                    <div id="tokenr7l3" class="fourth"></div>
-                </div>
-                <div id="r7" class="partial">
-                    <div id="tokenr7r0" class="first"></div>
-                    <div id="tokenr7r1" class="second"></div>
-                    <div id="tokenr7r2" class="third"></div>
-                    <div id="tokenr7r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l6" class="exact">
-                    <div id="tokenr6l0" class="first"></div>
-                    <div id="tokenr6l1" class="second"></div>
-                    <div id="tokenr6l2" class="third"></div>
-                    <div id="tokenr6l3" class="fourth"></div>
-                </div>
-                <div id="r6" class="partial">
-                    <div id="tokenr6r0" class="first"></div>
-                    <div id="tokenr6r1" class="second"></div>
-                    <div id="tokenr6r2" class="third"></div>
-                    <div id="tokenr6r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l5" class="exact">
-                    <div id="tokenr5l0" class="first"></div>
-                    <div id="tokenr5l1" class="second"></div>
-                    <div id="tokenr5l2" class="third"></div>
-                    <div id="tokenr5l3" class="fourth"></div>
-                </div>
-                <div id="r5" class="partial">
-                    <div id="tokenr5r0" class="first"></div>
-                    <div id="tokenr5r1" class="second"></div>
-                    <div id="tokenr5r2" class="third"></div>
-                    <div id="tokenr5r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l4" class="exact">
-                    <div id="tokenr4l0" class="first"></div>
-                    <div id="tokenr4l1" class="second"></div>
-                    <div id="tokenr4l2" class="third"></div>
-                    <div id="tokenr4l3" class="fourth"></div>
-                </div>
-                <div id="r4" class="partial">
-                    <div id="tokenr4r0" class="first"></div>
-                    <div id="tokenr4r1" class="second"></div>
-                    <div id="tokenr4r2" class="third"></div>
-                    <div id="tokenr4r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l3" class="exact">
-                    <div id="tokenr3l0" class="first"></div>
-                    <div id="tokenr3l1" class="second"></div>
-                    <div id="tokenr3l2" class="third"></div>
-                    <div id="tokenr3l3" class="fourth"></div>
-                </div>
-                <div id="r3" class="partial">
-                    <div id="tokenr3r0" class="first"></div>
-                    <div id="tokenr3r1" class="second"></div>
-                    <div id="tokenr3r2" class="third"></div>
-                    <div id="tokenr3r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l2" class="exact">
-                    <div id="tokenr2l0" class="first"></div>
-                    <div id="tokenr2l1" class="second"></div>
-                    <div id="tokenr2l2" class="third"></div>
-                    <div id="tokenr2l3" class="fourth"></div>
-                </div>
-                <div id="r2" class="partial">
-                    <div id="tokenr2r0" class="first"></div>
-                    <div id="tokenr2r1" class="second"></div>
-                    <div id="tokenr2r2" class="third"></div>
-                    <div id="tokenr2r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l1" class="exact">
-                    <div id="tokenr1l0" class="first"></div>
-                    <div id="tokenr1l1" class="second"></div>
-                    <div id="tokenr1l2" class="third"></div>
-                    <div id="tokenr1l3" class="fourth"></div>
-                </div>
-                <div id="r1" class="partial">
-                    <div id="tokenr1r0" class="first"></div>
-                    <div id="tokenr1r1" class="second"></div>
-                    <div id="tokenr1r2" class="third"></div>
-                    <div id="tokenr1r3" class="fourth"></div>
-                </div>
-            </div>
-            <div class="fb-chart">
-                <div id="l0" class="exact">
-                    <div id="tokenr0l0" class="first"></div>
-                    <div id="tokenr0l1" class="second"></div>
-                    <div id="tokenr0l2" class="third"></div>
-                    <div id="tokenr0l3" class="fourth"></div>
-                </div>
-                <div id="r0" class="partial">
-                    <div id="tokenr0r0" class="first"></div>
-                    <div id="tokenr0r1" class="second"></div>
-                    <div id="tokenr0r2" class="third"></div>
-                    <div id="tokenr0r3" class="fourth"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="action-pane">
-        <div id="ap-top">
-            <button class="choice"></button>
-            <button class="choice"></button>
-            <button class="choice"></button>
-            <button class="choice"></button>
-            <button class="choice"></button>
-            <button class="choice"></button>
-        </div>
-        <div id="undo-area">
-            <button id="undo">Undo</button>
-        </div>
-        <div id="submit-area">
-            <button id="submit">Submit</button>
-        </div>
-        <div id="message-area">
-            <p>Click a color to start. </p>
-        </div>
-        <div id="new-game-button"></div>
-    </section>
+            <div id="new-game-button"></div>
+        </section>
+    </div>
 </body>
 </html>

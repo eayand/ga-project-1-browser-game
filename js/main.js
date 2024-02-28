@@ -47,7 +47,6 @@
   function init() {
     makeCode()
     shuffle()
-    console.log('initialized')
   }
   
   function makeCode() {
@@ -111,6 +110,7 @@
       getFeedback()
       renderFeedback()
       if (row === 0 && exactMatches.length !== 4) {
+        userMessage.marginTop = '20px'
         userMessage.innerHTML = `<strong><span style="color: #fff5e9"><br></span><br>No guesses left. <br>  The code was <br><span style="font-size: 100px; line-height: 50px; margin: 0; padding: 0; text-align: center"><span style="color:${secretCode[0]}">•</span><span style="color:${secretCode[1]}">•</span><span style="color:${secretCode[2]}">•</span><span style="color:${secretCode[3]}">•</span></span></strong>`
         userMessage.style.visibility = 'visible'
         endGame()
@@ -200,18 +200,24 @@
   function endGame() {
     if (exactMatches.length === 4) {
       messageArea.style.display = 'block'
+      messageArea.style.marginBottom = '15px'
     }
     apTop.style.display = 'none'
     undoArea.style.display = 'none'
     submitArea.style.display = 'none'
-    messageArea.style.fontSize = '3vh'
+    messageArea.style.fontSize = '25px'
     const newGameButton = document.createElement('button')
     newGameButton.innerHTML = 'New Game?'
     newGameButton.style.backgroundColor = 'black'
     newGameButton.style.color = '#fff'
-    newGameButton.style.fontSize = '2.5vh'
-    newGameButton.style.height = '7vh'
+    newGameButton.style.fontSize = '20px'
+    newGameButton.style.height = '40px'
     newGameButton.style.width = '50%'
-    newGameButton.addEventListener('click', init)
+    newGameButton.style.marginTop = '30px' 
+    newGameButton.addEventListener('click', newGame)
     newButtonSpace.appendChild(newGameButton)
+  }
+
+  function newGame() {
+    window.location.reload()
   }
