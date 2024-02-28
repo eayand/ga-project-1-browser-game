@@ -32,7 +32,7 @@ h1 {
 }
 
 #board, #feedback {
-    margin-bottom: 30vh;
+    margin-bottom: 35vh;
 }
 
 #code, .guess, #fb-titles, .fb-chart {
@@ -155,23 +155,19 @@ h1 {
     margin: 0 auto;
     width: 100%;
     max-width: 500px;
-    height: 30%;
+    height: 35%;
     border: 5px solid black;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: 
-        "top top"
-        "left right"
-        "bottom bottom";
+    background-color: #fff5e9;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #ap-top {
-    grid-area: top;
-    background-color: #fff5e9;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin: 2% 0; 
+    width: 100%;
 }
 
 #ap-top > button {
@@ -180,38 +176,43 @@ h1 {
     border-radius: 50%;
 }
 
-#undo-area {
-    grid-area: left;
-    background-color: #fff5e9;
-}
-
 #undo-area, #submit-area {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
+    width: 50%;
 }
 
 #undo, #submit {
     width: 70%;
-    height: 70%;
-    color: #fff5e9;
+    height: 100%;
+    color: #ffffff;
     font-size: 4.5vmin;
     background-color: black;
 }
 
-#submit-area {
-    grid-area: right;
-    background-color: #fff5e9;
-}
-
 #message-area {
-    grid-area: bottom;
-    background-color: #fff5e9;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     padding: 0 5vmin;
-    font-size: 5vmin;
+    font-size: 6vmin;
+    height: 50%;
+    width: 100%;
+    /* background-color: pink; */
+    /* border-color: lightskyblue; */
+}
+
+#message-area > p {
+    display: flex;
+    /* background-color: aquamarine; */
+    /* border-color:bisque; */
+}
+
+#new-game-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
