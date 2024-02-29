@@ -5,7 +5,7 @@ In this version, the computer is player 1, and you try to guess the code.
 
 # Screenshot
 
-![screenshot of guess the code game](guess-the-code-screenshot.png)
+![screenshot of guess the code game](/guess-the-code-screnshot.png)
 
 # Technologies Used
 
