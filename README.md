@@ -15,7 +15,7 @@ In this version, the computer is player 1, and you try to guess the code.
 
 # Getting Started
 
-[Click to guess the code!](your deployment url here)
+[Click to guess the code!](https://eayand.github.io/ga-project-1-browser-game/)
 
 # Next Steps
 
